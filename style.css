@@ -1,0 +1,230 @@
+.no-select {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE/Edge */
+    user-select: none;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Avenir', sans-serif;
+}
+
+/* main animation goes here */
+.scroll-watcher{
+    height: 6px;
+    width: 0;
+    position: fixed;
+    background: #04c2c9;
+    top: 0;
+    z-index: 1000;
+    transform-origin: left;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.banner {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("bg-image.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 5;
+}
+
+.banner-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 600px;
+    font-size: 17px;
+    font-weight: 100;
+    padding: 20px;
+    color: white;
+    transition: text 0.20s;
+}
+.banner-text h1{
+    margin: 5px 0 0 0;
+}
+
+.banner-text span{
+    color: rgb(223, 82, 82);
+}
+
+.banner button {
+    height: 50px;
+    width: 200px;
+    margin: 30px 0 0 0;
+    font-size: 20px;
+    border: 2px solid white;
+    background-color: transparent;
+    transition: 0.3s linear;
+    color: white;
+}
+.banner button i{
+    margin: 0 0 0 7px;
+    transition: 0.3s linear;
+    font-size: 17px;
+    color: white;
+}
+.banner button a{
+    text-decoration: none;
+    color: white;
+}
+.banner button:hover i{
+    transform: rotate(90deg);
+}
+
+.banner button:hover{
+    background-color: #04c2c9;
+}
+
+/* about section goes here */
+
+.about-section {
+    height: auto;
+    width: 100vw;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 19px;
+    padding: 80px 0 0 0;
+}
+.about-section .about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.about-section .about div{
+    margin: 10px 0 0 0;
+    width: 70px;
+    border: 2px solid black;
+}
+
+.icons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+
+.icons .div{
+    height: 100px;
+    width: 300px;
+    text-align: center;
+   margin: 5px auto 0;
+}
+
+.about-myself{
+  width: 100vw;
+  height: 50vh;
+  text-align: center;
+  background-color: gainsboro;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-myself p{
+    margin: 20px 0 20px 0;
+}
+
+.about-myself a{
+    text-decoration: none;
+    color: rgb(100, 100, 221);
+}
+
+.about-myself a mark{
+    background-color: rgb(233, 203, 203);
+}
+
+/* my projects goes here */
+
+.my-project{
+    height: auto;
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    padding: 15px 0 0 0;
+}
+.my-project .img-sec {
+    padding: 15px;
+}
+.img-sec .img1, .img2{
+    margin: 0 0 15px 0;
+    transition: img-scroll 0.50s;
+}
+
+.first-text , .second-text{
+    margin: 19px auto 0;
+    font-size: 16px;
+    font-weight: normal;
+    width: 300px;
+    text-align: center;
+}
+.hori-line{
+    border: 2px solid black;
+    width: 50px;
+    margin: 3px auto 0;
+}
+/* footer goes here */
+
+.footer {
+    width: 100%;
+    height: 30vh;
+    text-align: center;   
+    padding: 25px 0 0 0;
+    margin-bottom: 10px;
+}
+
+.instagram-icon{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 1px solid black;
+    padding: 7px 5px 2px 5px;
+    font-size: 17px;
+    margin: 80px auto 0;
+}
+
+.footer h1{
+    margin: 10px 0 10px 0;
+}
+.footer p {
+    font-size: 12px;
+    margin: 120px 0 10px 0;
+    padding: 0 0 7px 0;
+}
+
+.img-sec{
+    animation: move linear;
+    animation-timeline: viwe();
+    animation-range: entry 0;
+}
+@keyframes move {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@-webkit-keyframes move {
+    from {
+        opacity: 0;
+        -webkit-transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: scale(1);
+    }
+}
