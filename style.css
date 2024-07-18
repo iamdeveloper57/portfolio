@@ -205,7 +205,7 @@
 
 .img-sec{
     animation: move linear;
-    animation-timeline: viwe();
+    animation-timeline: view();
     animation-range: entry 0;
 }
 @keyframes move {
