@@ -14,16 +14,23 @@ let watcher = document.querySelector('.scroll-watcher');
 let image = document.querySelector('.img-sec .img1')
 let image2 = document.querySelector('.img-sec .img2')
 
-// document.addEventListener('scroll', ()=>{
-//     let value = window.scrollY;
-//     const speed = 0.5;
-//     const scrollTop = window.scrollY || window.pageYOffset;
-//     const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-//     const scrollProgress = scrollTop / scrollHeight;
+// Check if the Media Session API is available
+if ('mediaSession' in navigator) {
+    // Define the amount of scroll to apply with each button press
+    const scrollAmount = 100; // Adjust this value as needed
 
-//     const scrollPosition = window.pageYOffset;
-//     text.style.transform = 'translateY(' + scrollPosition * -5 + 'px)';
-//     watcher.style.width = `${scrollProgress * 100}%`;
-//     image2.style.scale = `${scrollProgress * 100 }%`
-//     image.style.scale = `${scrollProgress * 100 }%`
-// })
+    // Handle the volume up button press
+    navigator.mediaSession.setActionHandler('volumeup', function() {
+        console.log('Volume Up pressed');
+        window.scrollBy(0, -scrollAmount); // Scroll up
+    });
+
+    // Handle the volume down button press
+    navigator.mediaSession.setActionHandler('volumedown', function() {
+        console.log('Volume Down pressed');
+        window.scrollBy(0, scrollAmount); // Scroll down
+    });
+
+} else {
+    console.log('navigator.mediaSession API not supported');
+}
