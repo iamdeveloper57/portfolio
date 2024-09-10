@@ -14,23 +14,20 @@ let watcher = document.querySelector('.scroll-watcher');
 let image = document.querySelector('.img-sec .img1')
 let image2 = document.querySelector('.img-sec .img2')
 
-// Check if the Media Session API is available
-if ('mediaSession' in navigator) {
-    // Define the amount of scroll to apply with each button press
-    const scrollAmount = 100; // Adjust this value as needed
 
-    // Handle the volume up button press
-    navigator.mediaSession.setActionHandler('volumeup', function() {
-        console.log('Volume Up pressed');
-        window.scrollBy(0, -scrollAmount); // Scroll up
-    });
 
-    // Handle the volume down button press
-    navigator.mediaSession.setActionHandler('volumedown', function() {
-        console.log('Volume Down pressed');
-        window.scrollBy(0, scrollAmount); // Scroll down
-    });
-
-} else {
-    console.log('navigator.mediaSession API not supported');
+// Animation 
+const scrollRevealOption={
+    distance: '50px',
+    origin: 'bottom',
+    duration: 1000,
+    reset: true
 }
+
+ScrollReveal().reveal('.icon', scrollRevealOption);
+ScrollReveal().reveal('.div', scrollRevealOption);
+ScrollReveal().reveal('.about-section h2', scrollRevealOption);
+ScrollReveal().reveal('.my-project h1', scrollRevealOption);
+ScrollReveal().reveal('.about h1', scrollRevealOption);
+ScrollReveal().reveal('div', scrollRevealOption)
+
