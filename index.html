@@ -1,115 +1,178 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
-    <link rel="icon" href="logo.png" type="imgage/x-logo" />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <body>
-    <div class="scroll-watcher"></div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>iamdeveloper</title>
+  <meta name="description" content="Rehan — Premium web development and design portfolio. Clean, minimal white & black layout focused on conversions.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#0a0a0a;
+      --muted:#6b6b6b;
+      --accent:#111111;
+      --glass: rgba(0,0,0,0.03);
+      --radius:14px;
+      --max:1400px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:24px 16px}
 
-    <div class="banner">
-      <div class="banner-text">
-        <h1>Hello, I'm <span>Rehan.</span> <br /></h1>
-        <h1>I am a front-end web developer.</h1>
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(180deg,#f5f5f5,#e9e9e9);display:flex;align-items:center;justify-content:center;font-weight:800;font-family:'Playfair Display';font-size:18px;letter-spacing:0.4px;border:1px solid rgba(0,0,0,0.06)}
+    .brand h1{margin:0;font-size:18px}
+    .nav{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .btn{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:9px 12px;border-radius:10px;color:var(--text);font-weight:600}
+    .btn.primary{background:var(--text);color:var(--bg);border:none}
 
-        <a href="#goto-about-section">
-          <button>View My Work <i class="fa-solid fa-arrow-right"></i></button>
+    .hero{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;margin-top:34px}
+    .intro h2{font-family:'Playfair Display',serif;font-size:42px;line-height:1.1;margin-bottom:12px}
+    .intro p{margin-bottom:18px;color:var(--muted);max-width:100%}
+    .services{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+    .pill{border:1px solid rgba(0,0,0,0.06);padding:8px 12px;border-radius:999px;font-weight:600;color:var(--muted);background:#fff}
+
+    .tv-wrap{position:relative;width:100%;max-width:420px;margin:auto}
+    .tv{background:linear-gradient(180deg,#ffffff,#fbfbfb);border-radius:16px;padding:18px;border:1px solid rgba(0,0,0,0.04);position:relative;overflow:hidden;box-shadow:0 12px 30px rgba(16,24,40,0.06)}
+    .screen{background:#000;border-radius:10px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;height:220px}
+    .screen video,.screen img{width:100%;height:100%;object-fit:cover}
+    .scanlines:after{content:"";position:absolute;inset:0;background-image:linear-gradient(transparent 85%, rgba(255,255,255,0.02) 86%);background-size:100% 6px;pointer-events:none}
+    @keyframes flickerLight{0%{opacity:1}50%{opacity:0.98}100%{opacity:1}}
+    .screen{animation:flickerLight 3s infinite ease-in-out}
+
+    .reveal{display:inline-block;overflow:hidden;vertical-align:bottom}
+    .reveal span{display:inline-block;transform:translateY(110%);animation:revealIn .9s cubic-bezier(.2,.9,.3,1) forwards}
+    .reveal.delay span{animation-delay:.12s}
+    .reveal.delay2 span{animation-delay:.24s}
+    @keyframes revealIn{to{transform:translateY(0)}}
+
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:26px}
+    .card{background:var(--glass);border-radius:10px;padding:10px;border:1px solid rgba(0,0,0,0.04);overflow:hidden;transition:transform 0.35s cubic-bezier(.2,.9,.3,1)}
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(16,24,40,0.06)}
+    .card img{width:100%;height:140px;object-fit:cover;border-radius:8px;display:block}
+    .meta{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+
+    .testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:26px}
+    .test{background:#fff;border-radius:12px;padding:14px;border:1px solid rgba(0,0,0,0.06);flex:1}
+
+    footer{margin-top:42px;padding:20px;border-radius:12px;background:linear-gradient(180deg,#fff,#fbfbfb);display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(0,0,0,0.03);flex-wrap:wrap;gap:12px}
+
+    .fadeIn{opacity:0;transform:translateY(8px);animation:fadeIn .7s forwards}
+    .fadeIn.delay{animation-delay:.18s}
+    .fadeIn.delay2{animation-delay:.35s}
+    @keyframes fadeIn{to{opacity:1;transform:none}}
+
+    .cta{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);background:transparent;font-weight:700}
+    .sig{font-family:'Playfair Display';letter-spacing:0.6px}
+
+    @media(max-width:1200px){.hero{grid-template-columns:1fr;gap:28px}.intro h2{font-size:38px}}
+    @media(max-width:768px){.intro h2{font-size:32px}.projects{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}.testimonials{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}}
+    @media(max-width:480px){.intro h2{font-size:26px}.nav{gap:6px;flex-wrap:wrap}.pill{padding:6px 10px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand fadeIn">
+        <div class="logo sig"><img src="profile.jpg" style="overflow: hidden; border-radius: 2px 8px 2px 8px;"  alt=""></div>
+        <div>
+          <h1>Rehan</h1>
+          <div style="font-size:12px;color:var(--muted)">Premium web development & design</div>
+        </div>
+      </div>
+      <nav class="nav fadeIn delay">
+        <a class="btn" href="#projects">Work</a>
+        <a class="btn" href="#services">Services</a>
+        <a class="btn primary" href="#contact">Get a Quote</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <section class="intro fadeIn delay2">
+        <h2>
+          <div class="reveal"><span>Rehan — Web Solutions.</span></div>
+          <div class="reveal delay"><span>Crafting premium websites solo, focused on performance and design.</span></div>
+        </h2>
+        <p>Building responsive, clean, and conversion-focused websites tailored to elevate your brand.</p>
+        <div class="services">
+          <div class="pill">Web Development</div>
+          <div class="pill">UI/UX Design</div>
+          <div class="pill">Landing Pages</div>
+        </div>
+        <div style="margin-top:16px">
+          <a class="cta" href="https://www.instagram.com/codexkiid/" target="_blank" rel="noopener">@codexkiid — Contact</a>
+        </div>
+      </section>
+
+      <aside class="tv-wrap fadeIn">
+        <div class="tv">
+          <div class="screen scanlines">
+            <video autoplay muted loop playsinline>
+              <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+            <div style="font-weight:700">Featured — Teaser</div>
+            <div style="font-size:12px;color:var(--muted)">0:12 • Loop</div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <section id="projects" class="fadeIn delay2">
+      <h3 style="font-family:'Playfair Display';margin-top:32px">Projects</h3>
+      <div class="projects">
+        <a class="card"  onclick="openProject(event,'Website Project — Launch')">
+          <img src="demop.jpg" style="height: 90%;" alt="project thumb">
+          <div class="meta"><div class="title" style="margin-top: 8px;">Website Project — Launch</div><div style="font-size:12px;color:var(--muted)">Web</div></div>
         </a>
       </div>
-    </div>
+    </section>
 
-    <div class="about-section" id="goto-about-section">
-      <div class="about">
-        <h1>ABOUT</h1>
-        <div></div>
+    <section id="services" class="fadeIn delay2">
+      <h3 style="font-family:'Playfair Display';margin-top:28px">Services</h3>
+      <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+        <div class="pill">Web Development</div>
+        <div class="pill">UI/UX Design</div>
+        <div class="pill">Landing Pages</div>
+        <div class="pill">Brand Identity</div>
       </div>
 
-      <div class="icons">
-        <div class="fast-icon">
-          <img src="fast.png" alt="" class="icon" />
-          <h2>Fast</h2>
-          <div class="div">
-            <p>
-              Fast load times and lag free interaction, my highest priority.
-            </p>
-          </div>
-        </div>
-
-        <div class="responsibe-icon">
-          <img src="responsibe.webp" alt="" class="icon" />
-          <h2>Responsibe</h2>
-          <div class="div">
-            <p>My layouts will work on any device, big or small.</p>
-          </div>
-        </div>
-
-        <div class="intuitive">
-          <img src="intusive.webp" alt="" class="icon" />
-          <h2>Intuitive</h2>
-          <div class="div">
-            <p>Strong preference for easy to use, intuitive UX/UI.</p>
-          </div>
-        </div>
-
-        <div class="dynamic">
-          <img src="dynamic.webp" alt="" class="icon" />
-          <h2>Dynamic</h2>
-          <div class="div">
-            <p>
-              Websites don't have to be static, I love making pages come to
-              life.
-            </p>
-          </div>
+      <div class="testimonials">
+        <div class="test">
+          <div style="font-weight:700">"Rehan elevated my website design and performance."</div>
+          <div style="font-size:13px;color:var(--muted);margin-top:8px">— Client</div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="about-myself">
-      <h1>Who I'm?</h1>
-
-      <p>
-        I'm a Front-End developer. I have serious passion for UI effects,
-        animations and creating intuitive, dynamic user experiences.
-      </p>
-      <a href="#footer"> <mark>Let's make something special.</mark></a>
-    </div>
-
-    <div class="my-project">
-      <h1>My Project</h1>
-      <div class="hori-line"></div>
-      <div class="first-text">
-        These are the projects I wish to showcase in my portfolio. The projects
-        will be updated soon....
+    <footer id="contact">
+      <div>
+        <div style="font-weight:800;font-size:18px">Want a premium website?</div>
+        <div style="color:var(--muted);margin-top:6px">DM on Instagram or email for a quote.</div>
       </div>
-      <div class="second-text">
-        These are just sample placeholder images I've placed.
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <a class="btn" href="https://www.instagram.com/codexkiid/" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn primary" href="mailto:hello@codexkiid.com">Get a Quote</a>
       </div>
+    </footer>
+  </div>
 
-      <div class="img-sec">
-        <img src="Web Design.webp" alt="image" width="100%" class="img1" />
-        <img src="Web design (1).webp" alt="image" width="100%" class="img2" />
-      </div>
-    </div>
-
-    <div class="footer" id="footer">
-      <h1>Contact</h1>
-      <a href="https://www.instagram.com/agraharirehan/">
-        <div class="instagram-icon"><i class="fa-brands fa-instagram"></i></div>
-      </a>
-      <div>Instagram</div>
-      <p>iamdeveloper &copy; 2024</p>
-    </div>
-    <script src="https://unpkg.com/scrollreveal"></script>  
-    <script src="script.js"></script>
-  </body>
+  <script>
+    // function openProject(e,name){
+    //   e.preventDefault();
+    //   const modal=document.createElement('div');
+    //   modal.style.position='fixed';modal.style.inset=0;modal.style.background='rgba(0,0,0,0.6)';modal.style.display='flex';modal.style.alignItems='center';modal.style.justifyContent='center';modal.style.zIndex=9999;
+    //   const box=document.createElement('div');box.style.width='92%';box.style.maxWidth='900px';box.style.background='#fff';box.style.border='1px solid rgba(0,0,0,0.04)';box.style.borderRadius='12px';box.style.padding='18px';
+    //   box.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><strong style='font-size:18px;color:var(--text)'>${name}</strong><button id='closeBtn' style='background:transparent;border:1px solid rgba(0,0,0,0.06);padding:8px 10px;border-radius:8px;color:var(--text)'>Close</button></div><div style='height:420px;border-radius:10px;overflow:hidden;background:#000'><iframe style='width:100%;height:100%;border:0' src='https://www.youtube.com/embed/dQw4w9WgXcQ?controls=1' title='preview'></iframe></div>`;
+    //   modal.appendChild(box);document.body.appendChild(modal);
+    //   document.getElementById('closeBtn').addEventListener('click',()=>document.body.removeChild(modal));
+    //   modal.addEventListener('click',(ev)=>{if(ev.target===modal)document.body.removeChild(modal)});
+    // }
+    setTimeout(()=>{const logo=document.querySelector('.logo');if(logo){logo.animate([{transform:'scale(1)'},{transform:'scale(1.05)'},{transform:'scale(1)'}],{duration:1100,iterations:2})}},700);
+  </script>
+</body>
 </html>
